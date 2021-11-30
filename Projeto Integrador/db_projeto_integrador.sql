@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `db_pj_integrador`.`tb_usuarios` (
   `id` BIGINT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(255) NOT NULL,
   `apelido` VARCHAR(100) NULL,
-  `foto` BLOB NULL,
+  `fotos` BLOB NULL,
   `email` VARCHAR(255) NOT NULL,
   `senha` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`id`))
