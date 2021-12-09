@@ -1,7 +1,5 @@
 package com.example.womensTales.controller;
 
-
-
 import java.util.List;
 
 import javax.validation.Valid;
