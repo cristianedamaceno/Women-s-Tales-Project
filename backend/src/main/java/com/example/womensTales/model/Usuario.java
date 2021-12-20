@@ -15,6 +15,8 @@ import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 @Entity
 @Table(name="tb_usuario")
 public class Usuario {
@@ -36,6 +38,7 @@ public class Usuario {
 	private String foto;
 	
 	//o usuário é o email dele!!!
+	@Schema(example = "email@email.com.br")
 	@NotBlank(message = "O ATRIBUTO USUÁRIO É OBRIGATÓRIO!")
 	@Size(min = 5, message = "O ATRIBUTO USUÁRIO DEVE TER NO MINIMO 5 CARACTERES!")
 	@Email
@@ -49,11 +52,6 @@ public class Usuario {
 	@JsonIgnoreProperties("usuario")
 	private List <Postagem> postagem;
 	
-	
-
-	
-	
-	
 	public Long getId() {
 		return id;
 	}
@@ -61,8 +59,6 @@ public class Usuario {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-	
 
 	public String getNome() {
 		return nome;
