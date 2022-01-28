@@ -1,0 +1,15 @@
+.text-decorator-none{
+    text-decoration: none;
+}
+
+.buttonAtualizar{
+    background-color: #FFD700 !important; 
+    color: white !important;
+    size: small !important;
+}
+
+.buttonDeletar{
+    background-color: black !important; 
+    color: white !important;
+    size: small !important;
+}
