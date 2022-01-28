@@ -1,0 +1,32 @@
+input {
+    width: 600px;
+  }
+  
+  textarea {
+    height: 10em;
+    width: 600px;
+  }
+
+  .message-chars-left {
+    width: 600px;
+    margin: auto;
+    text-align: left;
+  }
+  div[role='alert'] {
+    color: red;
+    margin-top: 1em;
+  }
+
+  .bgImageCadastro{
+    background-image: url(https://i.imgur.com/hoE2pyi.jpg);
+    background-repeat: no-repeat; 
+    width: 120vh; 
+    min-height: 100vh; 
+    background-size: cover; 
+    background-position: center;
+}
+
+.bgColorUser{
+    background-color: black !important;
+    margin-right: 20px !important;
+}
