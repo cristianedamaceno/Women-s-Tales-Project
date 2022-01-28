@@ -35,6 +35,13 @@ function Navbar() {
                                         <Typography variant="h6" color="inherit">
                                             Contato
                                         </Typography>
+                                        <Link to={"/formularioTema"} className="text-decorator-none cursor">
+                                    <Box mx={1}>
+                                        <Typography variant="h6" color="inherit">
+                                            Cadastro Tema
+                                        </Typography>
+                                    </Box>
+                                    </Link>
                                     </Box>
                                 </Link>
                                 
