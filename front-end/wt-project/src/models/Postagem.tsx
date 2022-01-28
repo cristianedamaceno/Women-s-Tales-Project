@@ -4,8 +4,6 @@ interface Postagem{
     id: number;
     titulo: string;
     texto: string;
-    tipo: string;
-    midia: string;
     tema?: Tema| null
 }
 

@@ -1,8 +1,8 @@
 interface Tema{
-    id: number;
-     //status: boolean; 
+    id: number; 
     titulo: string;
     palavraChave: string;
+    status : boolean;
 
 }
 

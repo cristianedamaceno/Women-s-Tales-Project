@@ -7,8 +7,13 @@ import SobreNos from './pages/sobrenos/SobreNos';
 import CadastroUser from "./pages/cadastroUser/CadastroUser";
 import Login from "./pages/login/Login";
 import Home from './pages/home/Home';
+import ListarPostagem from './components/postagens/listarPostagem/ListarPostagem';
+import ListarTema from './components/temas/listarTemas/ListarTema';
 
 import './App.css';
+import CadastroPostagem from './components/postagens/cadastroPostagem/CadastroPostagem';
+import CadastroTemas from './components/temas/cadastroTemas/CadastroTemas';
+
 
 function App() {
   return (
@@ -39,6 +44,22 @@ function App() {
 
           <Route path='/cadastrar'>
             <CadastroUser />
+          </Route>
+
+          <Route path='/temas'>
+              <ListarTema />
+            </Route>
+
+            <Route path='/postagens'>
+              <ListarPostagem />
+            </Route>
+
+            <Route exact path='/formularioPostagem'>
+            <CadastroPostagem />
+          </Route>
+
+          <Route exact path='/formularioTema'>
+            <CadastroTemas />
           </Route>
         </div>
       </Switch>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, ChangeEvent } from 'react'
 import { Container, Typography, TextField, Button } from "@material-ui/core"
 import { useHistory, useParams } from 'react-router-dom'
-import './CadastroTema.css';
+import './CadastroTemas.css';
 import useLocalStorage from 'react-use-localstorage';
 import Tema from '../../../models/Tema';
 import { buscaId, post, put } from '../../../services/Service';
@@ -13,7 +13,9 @@ function CadastroTema() {
 	const [token, setToken] = useLocalStorage('token');
 	const [tema, setTema] = useState<Tema>({
 		id: 0,
-		descricao: ''
+		titulo: '',
+		palavraChave: '',
+		status: false
 	})
 
 	useEffect(() => {
@@ -66,6 +68,7 @@ function CadastroTema() {
 				}
 			})
 			alert('Tema cadastrado com sucesso');
+			
 		}
 		back()
 
@@ -79,7 +82,8 @@ function CadastroTema() {
 		<Container maxWidth="sm" className="topo">
 			<form onSubmit={onSubmit}>
 				<Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro tema</Typography>
-				<TextField value={tema.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)} id="descricao" label="descricao" variant="outlined" name="descricao" margin="normal" fullWidth />
+				<TextField value={tema.titulo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)} id="titulo" label="titulo" variant="outlined" name="titulo" margin="normal" fullWidth />
+				<TextField value={tema.palavraChave} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)} id="palavraChave" label="palavraChave" variant="outlined" name="palavraChave" margin="normal" fullWidth />
 				<Button type="submit" variant="contained" color="primary">
 					Finalizar
 				</Button>

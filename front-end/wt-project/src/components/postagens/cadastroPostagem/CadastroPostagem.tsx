@@ -26,15 +26,13 @@ function CadastroPostagem() {
 			id: 0,
 			titulo: '',
             palavraChave:'',
-            
+            status: false
             
 		})
 	const [postagem, setPostagem] = useState<Postagem>({
 		id: 0,
 		titulo: '',
 		texto: '',
-        tipo: '',
-        midia:'',
 		tema: null
 	})
 
