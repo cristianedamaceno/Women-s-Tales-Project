@@ -8,19 +8,19 @@ import { buscaId, post, put } from '../../../services/Service';
 
 
 function CadastroTema() {
+
 	let history = useHistory();
 	const { id } = useParams<{ id: string }>();
 	const [token, setToken] = useLocalStorage('token');
 	const [tema, setTema] = useState<Tema>({
 		id: 0,
 		titulo: '',
-		palavraChave: '',
 		status: false
 	})
 
 	useEffect(() => {
 		if (token == "") {
-			alert("Você precisa estar logado")
+			alert("Por favor, efetue o Login!!")
 			history.push("/login")
 
 		}
@@ -60,15 +60,15 @@ function CadastroTema() {
 					'Authorization': token
 				}
 			})
-			alert('Tema atualizado com sucesso');
+			alert('Tema ATUALIZADO com sucesso!!');
 		} else {
 			post(`/temas`, tema, setTema, {
 				headers: {
 					'Authorization': token
 				}
 			})
-			alert('Tema cadastrado com sucesso');
-			
+			alert('Tema CADASTRADO com sucesso!!');
+
 		}
 		back()
 
@@ -81,9 +81,8 @@ function CadastroTema() {
 	return (
 		<Container maxWidth="sm" className="topo">
 			<form onSubmit={onSubmit}>
-				<Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro tema</Typography>
-				<TextField value={tema.titulo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)} id="titulo" label="titulo" variant="outlined" name="titulo" margin="normal" fullWidth />
-				<TextField value={tema.palavraChave} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)} id="palavraChave" label="palavraChave" variant="outlined" name="palavraChave" margin="normal" fullWidth />
+				<Typography variant="h3" color="textSecondary" component="h1" align="center" >Crie um Tema</Typography>
+				<TextField value={tema.titulo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)} id="titulo" label="Tema" variant="outlined" name="titulo" margin="normal" fullWidth />
 				<Button type="submit" variant="contained" color="primary">
 					Finalizar
 				</Button>

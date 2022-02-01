@@ -8,6 +8,7 @@ import Postagem from '../../../models/Postagem';
 import { busca, buscaId, post, put } from '../../../services/Service';
 
 function CadastroPostagem() {
+
 	let history = useHistory();
 	const { id } = useParams<{ id: string }>();
 	const [temas, setTemas] = useState<Tema[]>([])
@@ -15,7 +16,7 @@ function CadastroPostagem() {
 
 	useEffect(() => {
 		if (token == "") {
-			alert("Você precisa estar logado")
+			alert("Por favor, efetue o Login!!")
 			history.push("/login")
 
 		}
@@ -25,9 +26,8 @@ function CadastroPostagem() {
 		{
 			id: 0,
 			titulo: '',
-            palavraChave:'',
-            status: false
-            
+			status: false
+
 		})
 	const [postagem, setPostagem] = useState<Postagem>({
 		id: 0,
@@ -85,14 +85,14 @@ function CadastroPostagem() {
 					'Authorization': token
 				}
 			})
-			alert('Postagem atualizada com sucesso');
+			alert('Postagem ATUALIZADA com sucesso!!');
 		} else {
 			post(`/postagens`, postagem, setPostagem, {
 				headers: {
 					'Authorization': token
 				}
 			})
-			alert('Postagem cadastrada com sucesso');
+			alert('Postagem CADASTRADA com sucesso!!');
 		}
 		back()
 
@@ -105,9 +105,9 @@ function CadastroPostagem() {
 	return (
 		<Container maxWidth="sm" className="topo">
 			<form onSubmit={onSubmit}>
-				<Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro postagem</Typography>
-				<TextField value={postagem.titulo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="titulo" label="titulo" variant="outlined" name="titulo" margin="normal" fullWidth />
-				<TextField value={postagem.texto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="texto" label="texto" name="texto" variant="outlined" margin="normal" fullWidth />
+				<Typography variant="h3" color="textSecondary" component="h1" align="center" >Crie uma Postagem</Typography>
+				<TextField value={postagem.titulo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="titulo" label="Título" variant="outlined" name="titulo" margin="normal" fullWidth />
+				<TextField value={postagem.texto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="texto" label="Texto" name="texto" variant="outlined" margin="normal" fullWidth />
 
 				<FormControl >
 					<InputLabel id="demo-simple-select-helper-label">Tema </InputLabel>
@@ -125,7 +125,7 @@ function CadastroPostagem() {
 							))
 						}
 					</Select>
-					<FormHelperText>Escolha um tema para a postagem</FormHelperText>
+					<FormHelperText>Selecione o Tema da Postagem</FormHelperText>
 					<Button type="submit" variant="contained" color="primary">
 						Finalizar
 					</Button>
