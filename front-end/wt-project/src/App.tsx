@@ -9,14 +9,19 @@ import Login from "./pages/login/Login";
 import Home from './pages/home/Home';
 import ListarPostagem from './components/postagens/listarPostagem/ListarPostagem';
 import ListarTema from './components/temas/listarTemas/ListarTema';
-
+import DeletarTema from './components/temas/deletarTema/DeletarTema';
+import DeletarPostagem from './components/postagens/deletarPostagem/DeletarPostagem';
 import './App.css';
 import CadastroPostagem from './components/postagens/cadastroPostagem/CadastroPostagem';
 import CadastroTemas from './components/temas/cadastroTemas/CadastroTemas';
+import {Provider} from 'react-redux';
+import store from './store/store';
 
 
 function App() {
   return (
+    <Provider store={store}>
+
     <Router>
       <Navbar />
       <Switch>
@@ -26,7 +31,7 @@ function App() {
             <Login />
           </Route>
 
-          <Route path='/logar'>
+          <Route path='/login'>
             <Login />
           </Route>
 
@@ -54,17 +59,35 @@ function App() {
               <ListarPostagem />
             </Route>
 
-            <Route exact path='/formularioPostagem'>
+    
+
+         
+          <Route exact path='/formularioPostagem'>
             <CadastroPostagem />
           </Route>
-
+          <Route exact path='/formularioPostagem/:id'>
+            <CadastroPostagem />
+          </Route>
           <Route exact path='/formularioTema'>
             <CadastroTemas />
           </Route>
+          <Route exact path='/formularioTema/:id'>
+            <CadastroTemas />
+          </Route>
+          <Route path='/deletarPostagem/:id'>
+            <DeletarPostagem />
+          </Route>
+          <Route path='/deletarTema/:id'>
+            <DeletarTema />
+          </Route>
+
+
+
         </div>
       </Switch>
       <Footer />
     </Router>
+    </Provider>
   );
 }
 

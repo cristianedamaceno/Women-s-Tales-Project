@@ -6,10 +6,14 @@ import './ListarTema.css';
 import useLocalStorage from 'react-use-localstorage';
 import { useHistory } from 'react-router-dom';
 import { busca } from '../../../services/Service';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
 
 function ListarTema() {
 	const [temas, setTemas] = useState<Tema[]>([])
-	const [token, setToken] = useLocalStorage('token');
+	const token = useSelector<TokenState, TokenState["tokens"]>(
+		(state) => state.tokens
+	  );
 	let history = useHistory();
 
 	useEffect(() => {
@@ -52,9 +56,11 @@ function ListarTema() {
 
 									<Link to={`/formularioTema/${tema.id}`} className="text-decorator-none">
 										<Box mx={1}>
+											
 											<Button variant="contained" className="marginLeft" size='small' color="primary" >
 												atualizar
 											</Button>
+											
 										</Box>
 									</Link>
 									<Link to={`/deletarTema/${tema.id}`} className="text-decorator-none">

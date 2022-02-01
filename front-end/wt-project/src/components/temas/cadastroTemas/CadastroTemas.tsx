@@ -5,13 +5,16 @@ import './CadastroTemas.css';
 import useLocalStorage from 'react-use-localstorage';
 import Tema from '../../../models/Tema';
 import { buscaId, post, put } from '../../../services/Service';
-
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
 
 function CadastroTema() {
 
 	let history = useHistory();
 	const { id } = useParams<{ id: string }>();
-	const [token, setToken] = useLocalStorage('token');
+	const token = useSelector<TokenState, TokenState["tokens"]>(
+		(state) => state.tokens
+	  );
 	const [tema, setTema] = useState<Tema>({
 		id: 0,
 		titulo: '',
@@ -51,10 +54,9 @@ function CadastroTema() {
 
 	async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
 		e.preventDefault()
-		console.log("tema " + JSON.stringify(tema))
+		
 
 		if (id !== undefined) {
-			console.log(tema)
 			put(`/temas`, tema, setTema, {
 				headers: {
 					'Authorization': token
@@ -88,7 +90,7 @@ function CadastroTema() {
 				</Button>
 			</form>
 		</Container>
-	)
+	);
 }
 
 export default CadastroTema;

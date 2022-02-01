@@ -30,7 +30,7 @@ function CadastroUser() {
 
     useEffect(() => {
         if (userResult.id != 0) {
-            history.push("/logar")
+            history.push("/login")
             console.log(userResult)
         }
     }, [userResult])
@@ -70,11 +70,12 @@ function CadastroUser() {
                         <TextField value={user.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id="senha" label="Senha" variant="outlined" name="senha" margin="normal" type="password" fullWidth />
                         <TextField value={confirmarSenha} onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)} id="confirmarSenha" label="Confirmar a Senha" variant="outlined" name="confirmarSenha" margin="normal" type="password" fullWidth />
                         <Box marginTop={2} textAlign="center">
-                            <Link to="/logar" className="text-decorator-none">
+                            <Link to="/login" className="text-decorator-none">
                                 <Button variant="contained" color="secondary" className="bgColorUser">
                                     Cancelar
                                 </Button>
                             </Link>
+                            
                             <Button type="submit" variant="contained" color="primary" className="backgroundColor">
                                     Cadastrar
                             </Button>
