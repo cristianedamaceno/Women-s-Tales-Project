@@ -46,7 +46,7 @@ function DeletarPostagem() {
                 'Authorization': token
             }
         });
-        alert("Por favor, efetue o Login!!")
+        alert("Postagem deletada com sucesso!!")
     }
 
     function nao() {
