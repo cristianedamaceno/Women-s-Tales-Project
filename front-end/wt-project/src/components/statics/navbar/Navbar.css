@@ -6,5 +6,19 @@
 
 .cursor{
     cursor: pointer;
-    color: white;
+    color: black;
+}
+
+.background-color{
+    background-color: #c87286;
+
+}
+
+.bgImage{
+    background-image: url(https://i.imgur.com/ZIZxZ2S.jpg);
+}
+
+.size{
+    width: 70px;
+    height: 70px;
 }

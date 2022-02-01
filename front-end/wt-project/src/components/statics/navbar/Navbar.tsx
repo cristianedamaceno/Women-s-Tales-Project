@@ -35,11 +35,11 @@ function Navbar() {
     return (
         <>
             <AppBar position="static">
-                <Toolbar variant="dense">
+                <Toolbar className="background-color">
                     <Box style={{ cursor: "pointer" }} >
-                        <Typography variant="h5" color="inherit">
-                            Women's Tales
-                        </Typography>
+                        <Link to={"/home"}>
+                            <img src='https://i.imgur.com/xALHdrz.png' alt="logo" className='size'></img>
+                        </Link>
                     </Box>
                     <Box display="flex" justifyContent="space-between">
                         <Box>
@@ -47,7 +47,7 @@ function Navbar() {
                                 <Link to={"/home"} className="text-decorator-none cursor">
                                     <Box mx={1}>
                                         <Typography variant="h6" color="inherit">
-                                            Home
+                                        Women's Tales
                                         </Typography>
                                     </Box>
                                 </Link>
@@ -58,7 +58,7 @@ function Navbar() {
                                         </Typography>
                                     </Box>
                                 </Link>
-                                <Link to={"/contato"} className="text-decorator-none cursor">
+                                <Link to={"/contato"} className="text-decorator-none cursor" >
                                     <Box mx={1}>
                                         <Typography variant="h6" color="inherit">
                                             Contato
