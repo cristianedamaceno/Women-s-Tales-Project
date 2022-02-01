@@ -25,6 +25,10 @@ input {
     background-size: cover; 
     background-position: center;
 }
+.msgError{
+  color: crimson;
+  font-weight: bold;
+}
 
 .bgColorUser{
     background-color: black !important;
