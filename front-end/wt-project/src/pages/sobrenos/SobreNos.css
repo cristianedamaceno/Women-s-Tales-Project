@@ -1,7 +1,27 @@
-.container {
+.box-texto{
+    padding-top: 85px;
+    color: #505050!important;
+    font-weight: bold !important;
+    font-family: 'Source Sans Pro', sans-serif!important;
+    
+}
+
+.box-fotos{
+    height: 350px !important;
+    width: 350px !important;
+}
+.icone{
+    color: #c87286!important;
+    font-size: 700 !important;
+}
+
+.box-icones{
     display: flex;
-    flex-flow: row;
+    flex-direction: row;
     justify-content: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
+    align-items: center;
+}
+
+.espaco-letras{
+    letter-spacing: 1px!important;
 }
