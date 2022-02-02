@@ -45,7 +45,7 @@ function Home() {
                             <ModalPostagem />
                         </Box>
                         <Link to="/postagens" className='text-decorator-none'>
-                        <Button variant="outlined" style={{ borderColor: "white", backgroundColor: "#3F51B5", color: "white" }}>Ver Postagens</Button>
+                        <Button variant="outlined" className="botao">Ver Postagens</Button>
                         </Link>
                     </Box>
                 </Grid>
