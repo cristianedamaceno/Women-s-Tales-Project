@@ -1,5 +1,5 @@
 .bgImageCadastro{
-    background-image: url(https://i.imgur.com/hoE2pyi.jpg);
+    background-image: url(https://i.imgur.com/IXUCbmQ.jpg);
     background-repeat: no-repeat; 
     width: 120vh; 
     min-height: 100vh; 
@@ -10,4 +10,8 @@
 .bgColorUser{
     background-color: black !important;
     margin-right: 20px !important;
+}
+
+.fonteTitulo {
+    font-family: 'Dancing Script', cursive !important;
 }

@@ -15,7 +15,6 @@ function CadastroUser() {
         {
             id: 0,
             nome: "",
-            apelido: "",
             profissao: "",
             foto: "",
             usuario: "",
@@ -26,7 +25,6 @@ function CadastroUser() {
         {
             id: 0,
             nome: "",
-            apelido: "",
             profissao: "",
             foto: "",
             usuario: "",
@@ -87,9 +85,8 @@ function CadastroUser() {
             <Grid item xs={6} alignItems="center">
                 <Box paddingX={10}>
                     <form onSubmit={onSubmit}>
-                        <Typography variant="h4" gutterBottom color="textPrimary" component="h3" align="center">Cadastrar</Typography>
+                        <Typography variant="h4" gutterBottom color="textPrimary" component="h3" align="center" className="fonteTitulo">Junte-se a Nós!!</Typography>
                         <TextField value={user.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id="nome" label="Nome" variant="outlined" name="nome" margin="normal" fullWidth />
-                        <TextField value={user.apelido} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id="apelido" label="Apelido" variant="outlined" name="apelido" margin="normal" fullWidth />
                         <TextField value={user.profissao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id="profissao" label="Profissão" variant="outlined" name="profissao" margin="normal" fullWidth />
                         <TextField value={user.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id="foto" label="URL da Foto" variant="outlined" name="foto" margin="normal" fullWidth />
                         <TextField value={user.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id="usuario" label="Usuário (E-mail)" variant="outlined" name="usuario" margin="normal" fullWidth />

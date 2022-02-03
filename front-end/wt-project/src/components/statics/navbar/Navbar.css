@@ -1,9 +1,7 @@
 .text-decorator-none{ 
     text-decoration:none;
-
-
+    color: white !important;
 }
-
 
 .cursor{
     cursor: pointer;
@@ -12,7 +10,6 @@
 
 .background-color{
     background-color: #C77185;
-
 }
 
 .bgImage{
