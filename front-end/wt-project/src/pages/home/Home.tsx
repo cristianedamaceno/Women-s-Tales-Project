@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import {Typography, Box, Grid, Button} from '@material-ui/core';
+import React, { useEffect } from 'react';
+import { Typography, Box, Grid, Button } from '@material-ui/core';
 import './Home.css';
 import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem';
 import TabPostagem from '../../components/postagens/tabPostagem/TabPostagem';
@@ -9,28 +9,27 @@ import { TokenState } from '../../store/tokens/tokensReducer';
 import { toast } from 'react-toastify';
 
 function Home() {
-    
+
     let history = useHistory();
     const token = useSelector<TokenState, TokenState["tokens"]>(
-		(state) => state.tokens
-	  );
-    useEffect(()=>{
-      if(token == ''){
-        toast.error('Você precisa estar logado', {
-          position: "top-right",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          draggable: false,
-          theme: "colored",
-          progress: undefined,
-          });
-        history.push("/login")
-      }
+        (state) => state.tokens
+    );
+
+    useEffect(() => {
+        if (token == "") {
+            toast.error("Por favor, efetue o Login!!", {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined
+            });
+            history.push("/login")
+        }
     }, [token])
-
-
 
     return (
         <>
@@ -45,7 +44,7 @@ function Home() {
                             <ModalPostagem />
                         </Box>
                         <Link to="/postagens" className='text-decorator-none'>
-                        <Button variant="outlined" style={{ borderColor: "white", backgroundColor: "#3F51B5", color: "white" }}>Ver Postagens</Button>
+                            <Button variant="outlined" style={{ borderColor: "white", backgroundColor: "#3F51B5", color: "white" }}>Ver Postagens</Button>
                         </Link>
                     </Box>
                 </Grid>

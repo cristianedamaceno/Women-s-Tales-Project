@@ -5,6 +5,7 @@ import { cadastroUsuario } from "../../services/Service";
 import { Grid, Box, Typography, TextField, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import "./CadastroUser.css";
+import { toast } from "react-toastify";
 
 function CadastroUser() {
 
@@ -51,13 +52,32 @@ function CadastroUser() {
         })
 
     }
+
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
         if (confirmarSenha == user.senha) {
             cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
-            alert("Usuário Cadastrado com Sucesso!!")
+            toast.success("Usuário CADASTRADO com sucesso!!", {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined
+            });
         } else {
-            alert("Dados Inconsistentes!! Verifique as Informações de Cadastro.")
+            toast.error("Dados Inconsistentes!! Verifique as Informações de Cadastro.", {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined
+            });
         }
     }
 
@@ -81,7 +101,6 @@ function CadastroUser() {
                                     Cancelar
                                 </Button>
                             </Link>
-
                             <Button type="submit" variant="contained" color="primary" className="backgroundColor">
                                 Cadastrar
                             </Button>
@@ -89,7 +108,6 @@ function CadastroUser() {
                     </form>
                 </Box>
             </Grid>
-
         </Grid>
     );
 }

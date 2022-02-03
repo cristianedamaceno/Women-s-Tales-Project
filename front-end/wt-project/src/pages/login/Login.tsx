@@ -1,7 +1,6 @@
 import React, { useState, useEffect, ChangeEvent } from "react";
 import { Grid, Box, Typography, TextField, Button } from "@material-ui/core";
 import { Link, useHistory } from "react-router-dom";
-import useLocalStorage from "react-use-localstorage";
 import { login } from "../../services/Service";
 import UserLogin from "../../models/UserLogin";
 import "./Login.css";
@@ -12,8 +11,8 @@ import { toast } from 'react-toastify';
 function Login() {
 
     let history = useHistory();
-	const dispatch = useDispatch();
-	const [token, setToken] = useState('');
+    const dispatch = useDispatch();
+    const [token, setToken] = useState('');
     const [userLogin, setUserLogin] = useState<UserLogin>(
         {
             id: 0,
@@ -30,11 +29,11 @@ function Login() {
     }
 
     useEffect(() => {
-		if (token != '') {
-			dispatch(addToken(token))
-			history.push('/home')
-		}
-	}, [token])
+        if (token != '') {
+            dispatch(addToken(token))
+            history.push('/home')
+        }
+    }, [token])
 
 
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
@@ -42,10 +41,30 @@ function Login() {
         try {
             await login(`/usuarios/logar`, userLogin, setToken)
 
-            alert("Usuário Logado com Sucesso!!");
+            toast.success("Usuário Logado com Sucesso!!", {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined
+            });
+
         }
         catch (error) {
-            alert("Dados Inconsistentes. Erro ao Logar!!")
+            toast.error("Dados Inconsistentes. Erro ao Logar!!", {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined
+            });
+
         }
     }
 
@@ -70,7 +89,6 @@ function Login() {
                         <Link to="/cadastrar">
                             <Typography variant="subtitle1" gutterBottom align="center" className="textosLogin">Cadastre-se</Typography>
                         </Link>
-
                     </Box>
                 </Box>
             </Grid>

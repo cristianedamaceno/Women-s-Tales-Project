@@ -1,6 +1,5 @@
 import React, { } from 'react'
 import { Typography, Box, Grid, } from '@material-ui/core';
-import { Link } from 'react-router-dom';
 import './SobreNos.css';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
@@ -101,7 +100,7 @@ function SobreNos() {
                     <Grid item xs={6} >
                         <Box paddingBottom={7} >
                             <Typography variant='h3' component='h3' align='center' className='box-texto'>
-                                Idealizadores
+                                Squad de Dev's
                             </Typography>
                         </Box>
                     </Grid>
