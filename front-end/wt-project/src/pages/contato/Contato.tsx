@@ -1,8 +1,9 @@
 import React, { useRef } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm, SubmitHandler, ChangeHandler } from "react-hook-form";
 import './Contato.css';
 import { Grid, Box, Typography, TextField, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import emailjs from "emailjs-com";
 
 type Inputs = {
     nome: string,
@@ -12,16 +13,28 @@ type Inputs = {
 };
 
 function Contato() {
+    function sendEmail(e: any): void {
+
+        e.preventDefault();
+        emailjs.sendForm('GmailMessageWT', 'WomensTemplate', e.target, 'user_PaWt6qBcoiQoSKWf7JxZA').then((result) => { alert("Mensagem enviada com sucesso."); }, (error) => { alert(error.message) });
+        e.target.reset();
+    }
+
+    const onSubmit: SubmitHandler<Inputs> = data => {
+
+        console.log(data);
+
+    }
+
     const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
-    const onSubmit: SubmitHandler<Inputs> = data => console.log(data);
 
     return (
         <>
             <Grid container direction="row" justifyContent="center" alignItems="center">
-                <Grid item xs={6} className="bgImageCadastro"></Grid>
+                <Grid item xs={6} className="bgImageContato"></Grid>
                 <Grid item xs={6} alignItems="center">
                     <Box paddingX={10}>
-                        <form onSubmit={handleSubmit(onSubmit)}>
+                        <form onSubmit={handleSubmit(onSubmit)} id="form_contato">
                             <Typography variant="h4" gutterBottom color="textPrimary" component="h3" align="center">Contato</Typography>
                             <TextField id="nome" label="Nome" variant="outlined" margin="normal" fullWidth {...register("nome", { required: true, maxLength: 30, minLength: 3 })} />
                             {errors.nome?.type === 'required' && <span className="msgError"> "O Nome é um atributo obrigatório!"</span>}
@@ -40,6 +53,7 @@ function Contato() {
                                 placeholder="Escreva aqui sua mensagem"
                                 multiline
                                 fullWidth
+
                                 margin="normal"
                                 {...register("mensagem", { required: true, maxLength: 1500, minLength: 3 })}
                             />
@@ -49,11 +63,12 @@ function Contato() {
 
                             <Box marginTop={2} textAlign="center">
                                 <Link to="/home" className="text-decorator-none">
-                                    <Button variant="contained" color="secondary" className="bgColorUser">
+                                    <Button variant="outlined" className="botao2">
                                         Cancelar
                                     </Button>
                                 </Link>
-                                <Button type="submit" variant="contained" color="primary" className="backgroundColor">
+
+                                <Button type="submit" variant="outlined" className="botao">
                                     Enviar
                                 </Button>
                             </Box>
