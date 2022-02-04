@@ -1,12 +1,10 @@
 .caixa {
     
-    background-image: url("https://i.imgur.com/1AxSLuD.jpg");
+    background-image: url("https://i.imgur.com/Wi7rVAV.jpg?1");
     background-color: #C77185;
-    scale: 1;
-    
-    
-    
 }
+
+
 
 .titulo {
     color: #472930 !important;
@@ -24,5 +22,5 @@
     color: #472930 !important;
 }
 .postagens {
-    background-color: #D0B5BB;
+    background-color: #C77185;
 } 

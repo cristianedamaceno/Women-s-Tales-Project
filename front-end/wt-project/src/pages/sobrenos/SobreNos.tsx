@@ -8,12 +8,12 @@ function SobreNos() {
 
     return (
         <>
-            <Grid>
+            <Grid className="caixa">
                 <Grid xs={12}  >
                     <Grid container justifyContent="center">
                         <Grid item xs={6}>
                             <Box paddingTop={10}>
-                                <img src="https://i.imgur.com/nKMk2yk.jpg" alt="ODS 5" style={{ width: "100vh", height: "50vh" }} />
+                                <img src="" alt="ODS 5" style={{ width: "100vh", height: "50vh" }} />
                             </Box>
                         </Grid>
                     </Grid>

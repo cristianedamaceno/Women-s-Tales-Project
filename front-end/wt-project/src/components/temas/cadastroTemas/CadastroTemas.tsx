@@ -1,11 +1,12 @@
 import React, { useState, useEffect, ChangeEvent } from 'react'
-import { Container, Typography, TextField, Button } from "@material-ui/core"
+import { Container, Typography, TextField, Button, Grid, Box } from "@material-ui/core"
 import { useHistory, useParams } from 'react-router-dom'
 import './CadastroTemas.css';
 import useLocalStorage from 'react-use-localstorage';
 import Tema from '../../../models/Tema';
 import { buscaId, post, put } from '../../../services/Service';
 import { useSelector } from 'react-redux';
+import ListarTemas from '../listarTemas/ListarTema';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 
 function CadastroTema() {
@@ -14,7 +15,7 @@ function CadastroTema() {
 	const { id } = useParams<{ id: string }>();
 	const token = useSelector<TokenState, TokenState["tokens"]>(
 		(state) => state.tokens
-	  );
+	);
 	const [tema, setTema] = useState<Tema>({
 		id: 0,
 		titulo: '',
@@ -54,7 +55,7 @@ function CadastroTema() {
 
 	async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
 		e.preventDefault()
-		
+
 
 		if (id !== undefined) {
 			put(`/temas`, tema, setTema, {
@@ -82,13 +83,27 @@ function CadastroTema() {
 
 	return (
 		<Container maxWidth="sm" className="topo">
-			<form onSubmit={onSubmit}>
-				<Typography variant="h3" color="textSecondary" component="h1" align="center" >Crie um Tema</Typography>
-				<TextField value={tema.titulo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)} id="titulo" label="Tema" variant="outlined" name="titulo" margin="normal" fullWidth />
-				<Button type="submit" variant="contained" color="primary">
-					Finalizar
-				</Button>
-			</form>
+
+			<Grid >
+				<form onSubmit={onSubmit}>
+					<Typography variant="h3" color="textSecondary" component="h1" align="center" >Novo tema</Typography>
+					<TextField value={tema.titulo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)} id="titulo" label="Tema" variant="outlined" name="titulo" margin="normal" fullWidth />
+					<Button type="submit" variant="contained" className="botao">
+						Criar
+					</Button>
+				</form>
+			</Grid>
+			<Grid>
+				<Typography variant="h3" color="textSecondary" component="h1" align="center" >Lista de Temas</Typography>
+				<Grid container xs={12} justifyContent='center' alignItems='center' >
+				<Box display="flex" flexWrap="wrap" justifyContent="center">
+						<ListarTemas />
+					</Box>
+				</Grid>
+
+
+
+			</Grid>
 		</Container>
 	);
 }

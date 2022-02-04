@@ -41,16 +41,15 @@ function Login() {
         try {
             await login(`/usuarios/logar`, userLogin, setToken)
 
-            toast.success("Usuário Logado com Sucesso!!", {
+            toast.success('🦄 Usuário Logado!', {
                 position: "top-right",
                 autoClose: 2000,
                 hideProgressBar: false,
                 closeOnClick: true,
-                pauseOnHover: false,
-                draggable: false,
-                theme: "colored",
-                progress: undefined
-            });
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
 
         }
         catch (error) {
@@ -77,7 +76,7 @@ function Login() {
                         <TextField value={userLogin.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id="usuario" label="Usuário" variant="outlined" name="usuario" margin="normal" fullWidth />
                         <TextField value={userLogin.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id="senha" label="Senha" variant="outlined" name="senha" margin="normal" type="password" fullWidth />
                         <Box marginTop={2} textAlign="center">
-                            <Button type="submit" variant="contained" color="primary" className="backgroundColor">
+                            <Button type="submit" variant="contained"  className="botao">
                                 Logar
                             </Button>
                         </Box>

@@ -7,8 +7,8 @@ function Footer() {
 
     return (
         <>
-            <Grid container direction="row" style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", backgroundColor: "#C77185" }}>
-                <Box paddingLeft={7} style={{ backgroundColor: "#C77185", height: "60px" }}>
+            <Grid container direction="row" style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", backgroundColor: "#C77185"}}>
+                <Box paddingLeft={7} className="box1">
                     <Box paddingTop={1}>
                         <Typography variant="subtitle2" align="left" style={{ color: "white" }} >© 2022 Copyright: Women's Tales</Typography>
                     </Box>

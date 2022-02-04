@@ -36,7 +36,7 @@ function Navbar() {
         <>
             <AppBar position="static">
                 <Toolbar className="background-color">
-                    <Box style={{ cursor: "pointer" }} >
+                    <Box style={{ cursor: "pointer" }} className="background-color" >
                         <Link to={"/home"}>
                             <img src='https://i.imgur.com/xALHdrz.png' alt="logo" className='size'></img>
                         </Link>
@@ -68,7 +68,7 @@ function Navbar() {
                                 <Link to={"/formularioTema"} className="text-decorator-none cursor">
                                     <Box mx={1}>
                                         <Typography variant="h6" color="inherit">
-                                            Cadastro Tema
+                                            Temas
                                         </Typography>
                                     </Box>
                                 </Link>
