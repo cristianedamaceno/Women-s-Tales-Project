@@ -1,18 +1,26 @@
 .caixa {
-    background-color: #3F51B5;
+    
+    background-image: url("https://i.imgur.com/Wi7rVAV.jpg?1");
+    background-color: #C77185;
 }
 
+
+
 .titulo {
-    color: white !important;
+    color: #472930 !important;
     font-weight: bold !important;
 }
 
 .botao {
     border-color: white !important;
-    background-color: #3F51B5;
+    background-color: #472930 !important; 
     color: white !important;
 }
-
+.botao2{
+    border-color: white !important;
+    background-color: white !important; 
+    color: #472930 !important;
+}
 .postagens {
-    background-color: white;
+    background-color: #C77185;
 } 

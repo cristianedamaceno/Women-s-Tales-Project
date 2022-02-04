@@ -1,10 +1,22 @@
 .text-decorator-none{ 
     text-decoration:none;
-
-
+    color: white !important;
 }
 
 .cursor{
     cursor: pointer;
-    color: white;
+    color: #472930;
+}
+
+.background-color{
+    background-color: #C77185;
+}
+
+.bgImage{
+    background-image: url(https://i.imgur.com/ZIZxZ2S.jpg);
+}
+
+.size{
+    width: 70px;
+    height: 70px;
 }

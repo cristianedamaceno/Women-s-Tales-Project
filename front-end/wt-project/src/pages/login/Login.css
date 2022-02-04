@@ -3,7 +3,7 @@
 }
 
 .bgImageLogin{
-    background-image: url(https://i.imgur.com/EgC9dTR.jpg?1);
+    background-image: url(https://i.imgur.com/xALHdrz.png);
     background-repeat: no-repeat; 
     width: 100vh; 
     min-height: 100vh;
@@ -16,5 +16,6 @@
 }
 
 .backgroundColor{
-    background-color: #FFD700 !important;
+    background-color: #c87286 !important;
 }
+

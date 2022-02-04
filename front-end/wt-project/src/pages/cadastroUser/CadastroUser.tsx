@@ -1,10 +1,11 @@
-import React, {useState, useEffect, ChangeEvent} from "react";
+import React, { useState, useEffect, ChangeEvent } from "react";
 import { useHistory } from "react-router-dom";
 import User from "../../models/User";
-import {cadastroUsuario} from "../../services/Service";
+import { cadastroUsuario } from "../../services/Service";
 import { Grid, Box, Typography, TextField, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import "./CadastroUser.css";
+import { toast } from "react-toastify";
 
 function CadastroUser() {
 
@@ -14,7 +15,8 @@ function CadastroUser() {
         {
             id: 0,
             nome: "",
-            apelido: "",
+            profissao: "",
+            foto: "",
             usuario: "",
             senha: ""
         })
@@ -23,7 +25,8 @@ function CadastroUser() {
         {
             id: 0,
             nome: "",
-            apelido: "",
+            profissao: "",
+            foto: "",
             usuario: "",
             senha: ""
         })
@@ -47,13 +50,32 @@ function CadastroUser() {
         })
 
     }
+
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
         if (confirmarSenha == user.senha) {
             cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
-            alert("Usuário Cadastrado com Sucesso!!")
+            toast.success("Usuário CADASTRADO com sucesso!!", {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined
+            });
         } else {
-            alert("Dados Inconsistentes!! Verifique as Informações de Cadastro.")
+            toast.error("Dados Inconsistentes!! Verifique as Informações de Cadastro.", {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined
+            });
         }
     }
 
@@ -63,27 +85,26 @@ function CadastroUser() {
             <Grid item xs={6} alignItems="center">
                 <Box paddingX={10}>
                     <form onSubmit={onSubmit}>
-                        <Typography variant="h4" gutterBottom color="textPrimary" component="h3" align="center">Cadastrar</Typography>
+                        <Typography variant="h4" gutterBottom color="textPrimary" component="h3" align="center" className="fonteTitulo">Junte-se a Nós!!</Typography>
                         <TextField value={user.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id="nome" label="Nome" variant="outlined" name="nome" margin="normal" fullWidth />
-                        <TextField value={user.apelido} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id="apelido" label="Apelido" variant="outlined" name="apelido" margin="normal" fullWidth />
-                        <TextField value={user.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id="usuario" label="Usuário" variant="outlined" name="usuario" margin="normal"fullWidth />
+                        <TextField value={user.profissao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id="profissao" label="Profissão" variant="outlined" name="profissao" margin="normal" fullWidth />
+                        <TextField value={user.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id="foto" label="URL da Foto" variant="outlined" name="foto" margin="normal" fullWidth />
+                        <TextField value={user.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id="usuario" label="Usuário (E-mail)" variant="outlined" name="usuario" margin="normal" fullWidth />
                         <TextField value={user.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id="senha" label="Senha" variant="outlined" name="senha" margin="normal" type="password" fullWidth />
                         <TextField value={confirmarSenha} onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)} id="confirmarSenha" label="Confirmar a Senha" variant="outlined" name="confirmarSenha" margin="normal" type="password" fullWidth />
                         <Box marginTop={2} textAlign="center">
                             <Link to="/login" className="text-decorator-none">
-                                <Button variant="contained" color="secondary" className="bgColorUser">
+                                <Button variant="contained" className="botao">
                                     Cancelar
                                 </Button>
                             </Link>
-                            
-                            <Button type="submit" variant="contained" color="primary" className="backgroundColor">
-                                    Cadastrar
+                            <Button type="submit" variant="contained"  className="botao2">
+                                Cadastrar
                             </Button>
                         </Box>
                     </form>
                 </Box>
             </Grid>
-
         </Grid>
     );
 }

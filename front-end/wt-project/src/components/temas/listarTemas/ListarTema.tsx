@@ -41,7 +41,7 @@ function ListarTema() {
 		<>
 			{
 				temas.map(tema => (
-					<Box m={2} >
+					<Box m={2}>
 						<Card variant="outlined">
 							<CardContent>
 								<Typography color="textSecondary" gutterBottom>
@@ -57,15 +57,15 @@ function ListarTema() {
 									<Link to={`/formularioTema/${tema.id}`} className="text-decorator-none">
 										<Box mx={1}>
 											
-											<Button variant="contained" className="marginLeft" size='small' color="primary" >
-												atualizar
+											<Button variant="contained" className="marginLeft botao" size='small'>
+												Editar
 											</Button>
 											
 										</Box>
 									</Link>
 									<Link to={`/deletarTema/${tema.id}`} className="text-decorator-none">
 										<Box mx={1}>
-											<Button variant="contained" size='small' color="secondary">
+											<Button variant="contained" size='small' className="botao2">
 												deletar
 											</Button>
 										</Box>
@@ -73,7 +73,7 @@ function ListarTema() {
 								</Box>
 							</CardActions>
 						</Card>
-					</Box>
+						</Box>
 				))
 			}
 		</>
